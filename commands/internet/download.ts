@@ -1,18 +1,22 @@
 import { Message, Options } from "https://deno.land/x/coward@dev/mod.ts";
 import { Bot } from '../../utils/types.ts'
 export async function run (this: Bot, message: Message, args: string[]): Promise<Options.createMessage> {
-  const video = await fetch(
+  const res = await fetch(
   `https://projectlounge.pw/ytdl/download?url=${
     encodeURIComponent(
       args.join(" "),
     )
   }`,
-  ).then((res) => res.blob());
-  return {
-    file: {
-      file: video,
-      name: 'video.mp4'
+  )
+  if (res.ok) {
+    return {
+      file: {
+        file: await res.blob(),
+        name: 'video.mp4'
+      }
     }
+  } else return {
+    content: 'The download servers had an issue: ' + `${res.status}: ${res.statusText}`
   }
 }
 export const help = 'Download a video.'
