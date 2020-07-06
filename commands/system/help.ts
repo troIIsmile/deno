@@ -51,10 +51,6 @@ export async function run(
         },
         fields: [
           {
-            name: "Prefix",
-            value: "-",
-          },
-          {
             name: "Tip",
             value: random([
               "Submit playing lines, feature requests & bug reports @ " +
