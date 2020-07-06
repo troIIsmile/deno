@@ -13,4 +13,3 @@ export async function run(): Promise<string> {
     .join("\n");
 }
 export const help = "What does n-p-m stand for?";
-export const aliases = [];

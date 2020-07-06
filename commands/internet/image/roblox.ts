@@ -16,4 +16,3 @@ export async function run(
   };
 }
 export const help = "it's free";
-export const aliases = [];

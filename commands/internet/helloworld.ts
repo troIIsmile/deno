@@ -35,7 +35,7 @@ declare module API {
 
 export async function run(): Promise<Options.createMessage> {
   const langs: API.List = await fetch("https://tio.run/languages.json").then(
-    (res) => res.json()
+    (res) => res.json(),
   );
   const { name: title, tests, link: url } = random(Object.entries(langs))[1];
   return {
@@ -53,4 +53,3 @@ ${random(tests.helloWorld.request).payload[".code.tio"]}
   };
 }
 export const help = "Hello world in a random programming language";
-export const aliases = [];

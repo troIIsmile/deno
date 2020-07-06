@@ -46,4 +46,3 @@ export async function run(
 }
 
 export const help = "A new command";
-export const aliases = [];

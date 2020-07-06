@@ -28,4 +28,3 @@ export async function run(
   }
 }
 export const help = "Get the name of a color.";
-export const aliases = [];

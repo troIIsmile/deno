@@ -27,4 +27,3 @@ export async function run(
   }
 }
 export const help = "Download a video.";
-export const aliases = [];
