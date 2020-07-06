@@ -83,11 +83,8 @@ const messages: Nested<string> = {
   Websites: ["Twitter", "Reddit", "YouTube"],
   Meta: [
     // References to bots (or this bot)
-    "Submit playing lines & bug reports @ " +
-    JSON.parse(await Deno.readTextFile("./info.json")).bugs,
-    "500+ commits!",
-    "Made with discord.js!",
-    "Made with Node.js!",
+    "Made with Coward!",
+    "Made with Deno!",
     "NotSoBot is bad™",
   ],
   Songs: Object.entries({

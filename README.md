@@ -25,5 +25,5 @@ deno run --allow-read=./ --allow-net --allow-env -c tsconfig.json bot.ts
 ### Random "Playing" message
 
 ```bash
-deno run --allow-read messages.ts
+deno run messages.ts
 ```
