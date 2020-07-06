@@ -1,5 +1,6 @@
-export function run(): string {
-  return "node".split("").sort(() => Math.random() - 0.5).join("");
+import { Message } from "https://deno.land/x/coward@dev/mod.ts";
+
+export function run (_message: Message, args: string[]): string {
+  return args.join(' ').split('').sort().join('')
 }
-export const help = "Making a Node.js alternative and need a name? Try this!";
-export const aliases = ['node'];
+export const help = "Sort the input. Ex: node -> deno";

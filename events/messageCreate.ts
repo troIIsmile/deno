@@ -1,22 +1,22 @@
-import { Message } from "https://deno.land/x/coward@dev/mod.ts";
-import { Bot } from "../utils/types.ts";
+import { Message } from "https://deno.land/x/coward@dev/mod.ts"
+import { Bot } from "../utils/types.ts"
 
 export default async function (this: Bot, message: Message) {
   // When a message is sent
   if (!message.author?.bot) {
     // no bots allowed
-    const prefix: string = "-"; //prefixes[message.guild?.id || ""] || "-";
-    const content = message.content || "";
+    const prefix: string = message.channel.id === message.author.id ? '' : "-" // nothing if it's a dm
+    const content = message.content || ""
     const name = [...this.commands.keys(), ...this.aliases.keys()].find(
       (cmdname) =>
         content.startsWith(`${prefix}${cmdname} `) || // matches any command with a space after
         content === `${prefix}${cmdname}`, // matches any command without arguments
-    );
+    )
     // Run the command!
     if (name) {
       const command = this.commands.get(name)?.run || // The command if it found it
         this.commands.get(this.aliases.get(name) || "")?.run || // Aliases
-        (() => {}); // Do nothing otherwise
+        (() => { }) // Do nothing otherwise
 
       try {
         const output = await command.call(
@@ -26,10 +26,10 @@ export default async function (this: Bot, message: Message) {
           content
             .substring(prefix.length + 1 + name.length) // only the part after the command
             .split(" "), // split with spaces
-        );
+        )
 
         if (output) {
-          this.createMessage(message.channel.id, output);
+          this.createMessage(message.channel.id, output)
           this.users.get('')
         }
       } catch (err) {
@@ -46,7 +46,7 @@ export default async function (this: Bot, message: Message) {
               text: `Report this bug @ ${JSON.parse(await Deno.readTextFile("../package.json")).bugs}`,
             },
           },
-        });
+        })
       }
     }
   }
