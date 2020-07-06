@@ -2,6 +2,8 @@
 
 An attempt to port nxt to Deno.
 
+## Running
+
 ```bash
-deno run init.ts
+npm start
 ```
