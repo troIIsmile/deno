@@ -3,9 +3,9 @@
   "version": "1.0.0",
   "description": "An attempt to port nxt to Deno.",
   "scripts": {
-    "start": "deno run --allow-read --allow-net --allow-env init.ts"
+    "start": "deno run --allow-read --allow-net --allow-env -c tsconfig.json init.ts"
   },
-  "bugs": "no",
+  "bugs": "https://github.com/Jack5079/nxt-deno/issues/",
   "author": "Jack <hello@5079.ml> (https://5079.ml)",
   "license": "ISC"
 }
