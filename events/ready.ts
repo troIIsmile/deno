@@ -6,6 +6,7 @@ import { extname } from "https://deno.land/std/path/mod.ts";
 function activityChanger(this: Bot) {
   // activityChanger from esmBot, also known as "the gamer code"
   this.modifyPresence({
+    status: 'dnd',
     game: {
       name: random(all),
       type: 1,
@@ -15,7 +16,7 @@ function activityChanger(this: Bot) {
 }
 
 export default async function (this: Bot) {
-  // activityChanger.call(this)
+  activityChanger.call(this)
   const files = (await recursiveReaddir("./commands/")).filter((file) =>
     extname(file) === ".ts"
   );
