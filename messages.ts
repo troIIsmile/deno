@@ -84,7 +84,7 @@ const messages: Nested<string> = {
   Meta: [
     // References to bots (or this bot)
     "Submit playing lines & bug reports @ " +
-    JSON.parse(await Deno.readTextFile("./package.json")).bugs,
+    JSON.parse(await Deno.readTextFile("./info.json")).bugs,
     "500+ commits!",
     "Made with discord.js!",
     "Made with Node.js!",

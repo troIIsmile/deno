@@ -43,7 +43,7 @@ export default async function (this: Bot, message: Message) {
             title: err.toString(),
             color: "RED",
             footer: {
-              text: `Report this bug @ ${JSON.parse(await Deno.readTextFile("../package.json")).bugs}`,
+              text: `Report this bug @ ${JSON.parse(await Deno.readTextFile("./info.json")).bugs}`,
             },
           },
         })

@@ -54,7 +54,7 @@ export async function run(
             name: "Tip",
             value: random([
               "Submit playing lines, feature requests & bug reports @ " +
-              JSON.parse(await Deno.readTextFile("./package.json")).bugs,
+              JSON.parse(await Deno.readTextFile("./info.json")).bugs,
               "This is a rewrite of nxt in Deno.",
             ]),
           },

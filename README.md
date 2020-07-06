@@ -19,11 +19,11 @@ A terrible Discord bot, but in Deno.
 ### Running the bot
 
 ```bash
-npm start
+deno run --allow-read=./ --allow-net --allow-env -c tsconfig.json bot.ts
 ```
 
 ### Random "Playing" message
 
 ```bash
-npm run message
+deno run --allow-read messages.ts
 ```

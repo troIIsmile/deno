@@ -9,7 +9,7 @@ export async function run (this: Bot): Promise<Options.createMessage> {
     embed: {
       author: {
         name: `About nxt`,
-        url: JSON.parse(await Deno.readTextFile('./package.json')).homepage
+        url: JSON.parse(await Deno.readTextFile('./info.json')).homepage
       },
       color: 0x454545,
       fields: [{
@@ -28,7 +28,7 @@ export async function run (this: Bot): Promise<Options.createMessage> {
         inline: true
       }, {
         name: 'ℹ Bot Version',
-        value: JSON.parse(await Deno.readTextFile('./package.json')).version,
+        value: JSON.parse(await Deno.readTextFile('./info.json')).version,
         inline: true
       }, {
         name: '📚 Library used',
