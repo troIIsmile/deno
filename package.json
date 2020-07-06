@@ -7,6 +7,7 @@
     "message": "deno run --allow-read messages.ts"
   },
   "bugs": "https://github.com/Jack5079/nxt-deno/issues/",
+  "homepage": "https://github.com/Jack5079/nxt-deno#readme",
   "author": "Jack <hello@5079.ml> (https://5079.ml)",
   "license": "ISC"
 }
