@@ -198,5 +198,9 @@ const flatten = <Type>(messages: Nested<Type> | Type[]): Type[] => {
 };
 
 const all = flatten(messages);
-
+if (import.meta.main) {
+  await import('./utils/random.ts').then(({default: random}) => {
+    console.log('Playing', random(all))
+  })
+}
 export { messages, all };

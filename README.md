@@ -12,3 +12,18 @@ A terrible Discord bot, but in Deno.
 
 2. Open `.env` and:
    1. Replace the text after `TOKEN=` with your bot's token
+
+
+## Running
+
+### Running the bot
+
+```bash
+npm start
+```
+
+### Random "Playing" message
+
+```bash
+npm run message
+```
