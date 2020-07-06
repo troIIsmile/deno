@@ -13,7 +13,7 @@
         "--allow-read=./",
         "--allow-env",
         "--allow-net",
-        "."
+        "bot.ts"
       ],
       "port": 9229
     }
