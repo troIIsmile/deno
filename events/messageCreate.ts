@@ -5,7 +5,7 @@ export default async function (this: Bot, message: Message) {
   // When a message is sent
   if (!message.author?.bot) {
     // no bots allowed
-    const prefix: string = message.channel.id === message.author.id ? '' : "-" // nothing if it's a dm
+    const prefix: string = message.channel === await this.getDMChannel(message.author.id) ? '' : "-" // nothing if it's a dm
     const content = message.content || ""
     const name = [...this.commands.keys(), ...this.aliases.keys()].find(
       (cmdname) =>
