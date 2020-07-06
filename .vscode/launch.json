@@ -10,7 +10,7 @@
       "runtimeArgs": [
         "run",
         "--inspect-brk",
-        "--allow-read",
+        "--allow-read=./",
         "--allow-env",
         "--allow-net",
         "."
