@@ -1,5 +1,4 @@
-import { Message, Options } from "https://deno.land/x/coward@dev/mod.ts";
-import { Bot } from '../../utils/types.ts'
+import { Options } from "https://deno.land/x/coward@dev/mod.ts";
 import random from "../../utils/random.ts";
 declare module API {
   export interface Payload {
