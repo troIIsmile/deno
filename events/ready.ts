@@ -2,7 +2,7 @@ import { all } from "../messages.ts";
 import { Bot, CommandObj } from "../utils/types.ts";
 import random from "../utils/random.ts";
 import { recursiveReaddir } from "https://deno.land/x/recursive_readdir/mod.ts";
-import { extname } from "https://deno.land/std/path/mod.ts";
+import { extname, basename } from "https://deno.land/std/path/mod.ts";
 function activityChanger(this: Bot) {
   // activityChanger from esmBot, also known as "the gamer code"
   this.modifyPresence({
@@ -24,7 +24,7 @@ export default async function (this: Bot) {
   const entries: [string, CommandObj][] = await Promise.all(
     files
       .map(async (file): Promise<[string, CommandObj]> => [
-        file.replace(".ts", "").replace(/^.*[\\\/]/, ""), // Remove folders from the path and .ts, leaving only the command name
+        basename(file).replace(".ts", ""), // Remove folders from the path and .ts, leaving only the command name
         {
           help: "A command without a description", // this will be overwritten by the real description if it is there
           ...(await import(`../${file}`)), // `run` and `desc`
