@@ -20,6 +20,7 @@ export default async function (this: Bot) {
   const files = (await recursiveReaddir("./commands/")).filter((file) =>
     extname(file) === ".ts"
   );
+  // Load all commands.
   let count = 0;
   const entries: [string, CommandObj][] = await Promise.all(
     files
@@ -43,4 +44,18 @@ export default async function (this: Bot) {
       this.aliases.set(alias, name);
     });
   });
+  const watcher = Deno.watchFs('commands', {
+    recursive: true
+  })
+  for await (const event of watcher) {
+    if (event.kind === 'remove') {
+      event.paths.forEach(path => {
+        const name = basename(path).replace(".ts", "");
+        this.commands.get(name)?.aliases?.forEach(alias => {
+          this.aliases.delete(alias)
+        })
+        this.commands.delete(name)
+      })
+    }
+  }
 }
