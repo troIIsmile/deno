@@ -35,7 +35,7 @@ export async function run (this: Bot): Promise<Options.createMessage> {
         inline: true,
         value: Deno.version.deno
         }, {
-        name: '✔ TypeScript Version',
+        name: '☑ TypeScript Version',
         inline: true,
         value: Deno.version.typescript
       }, {
