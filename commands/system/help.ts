@@ -1,5 +1,5 @@
 import { Bot, Message, Options } from "../../utils/types.ts";
-import random from '../../utils/random.ts'
+import random from "../../utils/random.ts";
 function chunk(array: any[], size: number = 1): string[][] {
   let chunk: any[] = [];
   return array.reduce((acc, curr, idx, arr) => {
@@ -23,18 +23,32 @@ export async function run(
   const commands = Array.from(
     this.commands.entries(),
     (
-      [name, { help: desc, aliases }],
+      [name, { help: desc }],
     ) => [
-      name +
-      ((aliases && aliases.length)
-        ? ` (Aliases: ${aliases?.join(", ")})`
-        : ""),
+      name,
       desc || "",
     ],
   )
     .sort((a, b) => {
       return a[0].localeCompare(b[0] || "") || -1;
     });
+  const title = (this.commands.get(args.join(" ")) ? args.join(" ") : false) ||
+    this.aliases.get(args.join(" "));
+  if (title) {
+    return {
+      embed: {
+        title,
+        description: this.commands.get(title)?.help,
+        fields: [{
+          name: "📛 Aliases",
+          value: this.commands.get(title)?.aliases?.join(", "),
+        }, {
+          name: "👨‍💻 Function argument count",
+          value: this.commands.get(title)?.run.length,
+        }],
+      },
+    };
+  }
   const pages = chunk(commands, 20);
   return pages[page - 1]
     ? {
