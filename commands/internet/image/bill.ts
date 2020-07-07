@@ -4,7 +4,7 @@ export async function run(
   message: Message,
   args: string[],
 ): Promise<Options.createMessage> {
-  // The API returns XML, this code justs extracts the confidence value.
+  // The gender detection API returns XML, this code justs extracts the confidence value.
   const male = Number(
     (await fetch(
       "https://pbump.net/files/post/names/find.php?who=" +
