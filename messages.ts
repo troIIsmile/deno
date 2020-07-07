@@ -180,7 +180,7 @@ export const messages: Nested<string> = {
     "Hello, Gordon!",
     // add your messages here
     "now this is a j",
-    "fuck macOS",
+    "doge is funny"
   ],
 };
 
