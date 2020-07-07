@@ -33,9 +33,8 @@ export async function run(
     .sort((a, b) => {
       return a[0].localeCompare(b[0] || "") || -1;
     });
-  const title = (this.commands.get(args.join(" ")) ? args.join(" ") : false) ||
-    this.aliases.get(args.join(" "));
-  if (title) {
+  const title = this.aliases.get(args.join(' ')) || args.join(' ');
+  if (this.commands.has(title)) {
     const source = (await recursiveReaddir("./commands/")).find((name) =>
   name.endsWith(title + ".ts")
 );
@@ -49,7 +48,7 @@ export async function run(
         }, {
             name: '👨‍💻 Source code',
             value: source ? 'https://github.com/Jack5079/nxt-deno/blob/master/' + source : 'Not found!'
-        }],
+        }].filter(field=>field.value),
       },
     };
   }
