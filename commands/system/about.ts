@@ -33,7 +33,15 @@ export async function run (this: Bot): Promise<Options.createMessage> {
       }, {
         name: '🦕 Deno Version',
         inline: true,
-        value: Deno.version
+        value: Deno.version.deno
+        }, {
+        name: '✔ TypeScript Version',
+        inline: true,
+        value: Deno.version.typescript
+      }, {
+        name: '⏩ V8 Version',
+        inline: true,
+        value: Deno.version.v8
       }, {
         name: '🖥 OS',
         value: Deno.build.os,
