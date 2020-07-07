@@ -13,9 +13,7 @@ export async function run (this: Bot): Promise<Options.createMessage> {
       color: 0x454545,
       fields: [{
         name: '✏ Credits',
-        value: `
-        URL for the -achievement command from esmBot by Essem#9261
-        [${percentOfLines.toFixed(5)}% of the "Playing" messages from esmBot](https://github.com/TheEssem/esmBot/blob/master/messages.json)`,
+        value: `[${percentOfLines.toFixed(5)}% of the "Playing" messages from esmBot](https://github.com/TheEssem/esmBot/blob/master/messages.json)`,
         inline: false
       }, {
         name: '💬 Server Count',
