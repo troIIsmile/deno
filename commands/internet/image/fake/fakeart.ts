@@ -1,4 +1,4 @@
-import { Options } from "https://deno.land/x/coward@dev/mod.ts"
+import { Options } from "../../../../utils/types.ts"
 export async function run (): Promise<Options.createMessage> {
   return {
     file: {

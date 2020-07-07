@@ -1,4 +1,4 @@
-import { Options, Message } from "https://deno.land/x/coward@dev/mod.ts";
+import { Options, Message } from "../../../utils/types.ts";
 import { stringify } from "https://deno.land/std/node/querystring.ts";
 export async function run(
   message: Message,

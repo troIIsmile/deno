@@ -1,4 +1,4 @@
-import { Options } from "https://deno.land/x/coward@dev/mod.ts";
+import { Options } from "../../utils/types.ts";
 import random from "../../utils/random.ts";
 declare module API {
   export interface Payload {
