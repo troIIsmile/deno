@@ -4,6 +4,7 @@ export async function run(
   message: Message,
   args: string[],
 ): Promise<Options.createMessage> {
+  // The API returns XML, this code justs extracts the confidence value.
   const male = Number(
     (await fetch(
       "https://pbump.net/files/post/names/find.php?who=" +
@@ -15,7 +16,7 @@ export async function run(
       "",
     ),
   );
-
+  // Send the image
   return {
     file: {
       file: await fetch(
