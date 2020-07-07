@@ -7,7 +7,7 @@ export async function run (this: Bot): Promise<Options.createMessage> {
   return {
     embed: {
       author: {
-        name: "About `nxt-deno`",
+        name: "About nxt-deno",
         url: JSON.parse(await Deno.readTextFile('./info.json')).homepage
       },
       description: '`jackbot-next-next` lol',
