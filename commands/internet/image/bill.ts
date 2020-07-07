@@ -21,14 +21,14 @@ export async function run(
       file: await fetch(
         "https://belikebill.ga/billgen-API.php?" +
           stringify(
-            args.join("").length
+            args.join("").length // If there's any text
               ? {
-                text: args.join(" "),
+                text: args.join(" "), // Only do the text the user gave
               }
-              : {
-                name: message.author.username,
-                default: 1,
-                sex: male >= 0.5 || male === -1 ? "m" : "f",
+              : { // Auto-generated
+                name: message.author.username, // The user's name
+                default: 1, // Default means have the API make the text
+                sex: male >= 0.5 || male === -1 ? "m" : "f", // The API returns a confidence value. -1 means the name wasn't found.
               },
           ),
       ).then((res) => res.blob()),
