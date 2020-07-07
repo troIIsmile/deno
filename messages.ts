@@ -3,7 +3,7 @@ interface Nested<Type> {
   [key: string]: Nested<Type> | Type[];
 }
 
-const messages: Nested<string> = {
+export const messages: Nested<string> = {
   Browsers: {
     Chromium: [
       "Google Chrome",
@@ -192,10 +192,10 @@ const flatten = <Type>(messages: Nested<Type> | Type[]): Type[] => {
   return result.some(Array.isArray) ? flatten(result) : result;
 };
 
-const all = flatten(messages);
+export const all = flatten(messages);
+
 if (import.meta.main) {
-  await import('./utils/random.ts').then(({default: random}) => {
+  import('./utils/random.ts').then(({default: random}) => {
     console.log('Playing', random(all))
   })
 }
-export { messages, all };
