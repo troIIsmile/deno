@@ -28,9 +28,6 @@ export async function run (this: Bot): Promise<Options.createMessage> {
         value: JSON.parse(await Deno.readTextFile('./info.json')).version,
         inline: true
       }, {
-        name: '📚 Library used',
-        value: 'Coward', inline: true
-      }, {
         name: '🦕 Deno Version',
         inline: true,
         value: Deno.version.deno
