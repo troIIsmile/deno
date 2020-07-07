@@ -20,3 +20,5 @@ export interface Bot extends Client {
   commands: Map<string, CommandObj>;
   aliases: Map<string, string>;
 }
+
+export { Message, Options } from "https://deno.land/x/coward@dev/mod.ts";

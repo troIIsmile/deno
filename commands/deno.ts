@@ -1,4 +1,4 @@
-import { Message } from "https://deno.land/x/coward@dev/mod.ts";
+import { Message } from "../utils/types.ts";
 
 export function run (_message: Message, args: string[]): string {
   return args.join(' ').split('').sort().join('')

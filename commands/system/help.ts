@@ -1,5 +1,4 @@
-import { Message, Options } from "https://deno.land/x/coward@dev/mod.ts";
-import { Bot } from "../../utils/types.ts";
+import { Bot, Message, Options } from "../../utils/types.ts";
 import random from '../../utils/random.ts'
 function chunk(array: any[], size: number = 1): string[][] {
   let chunk: any[] = [];

@@ -1,5 +1,4 @@
-import { Options } from "https://deno.land/x/coward@dev/mod.ts"
-import { Bot } from '../../utils/types.ts'
+import { Bot, Options } from '../../utils/types.ts'
 import { all as messages } from '../../messages.ts'
 export async function run (this: Bot): Promise<Options.createMessage> {
   const esmBotMessages: string[] = await fetch('https://raw.githubusercontent.com/TheEssem/esmBot/master/messages.json').then(res => res.json())

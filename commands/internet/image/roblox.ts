@@ -1,7 +1,5 @@
-import { Message, Options } from "https://deno.land/x/coward@dev/mod.ts";
-import { Bot } from "../../../utils/types.ts";
+import { Message, Options } from "../../../utils/types.ts";
 export async function run(
-  this: Bot,
   _message: Message,
   args: string[],
 ): Promise<Options.createMessage> {

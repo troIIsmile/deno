@@ -1,5 +1,4 @@
-import { Message, Options } from "https://deno.land/x/coward@dev/mod.ts";
-import { Bot } from "../../utils/types.ts";
+import { Message, Options, Bot } from "../../utils/types.ts";
 /**
  * "Clean" removes @everyone pings, as well as tokens, and makes code blocks
  * escaped so they're shown more easily. As a bonus it resolves promises
