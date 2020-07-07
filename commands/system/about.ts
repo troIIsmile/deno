@@ -48,5 +48,5 @@ export async function run (this: Bot): Promise<Options.createMessage> {
     }
   }
 }
-export const help = 'A new command'
-export const aliases = []
+export const help = 'Info about the bot.'
+export const aliases = ['list', 'stats']
