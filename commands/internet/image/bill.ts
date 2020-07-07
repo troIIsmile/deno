@@ -1,6 +1,9 @@
 import { Options, Message } from "https://deno.land/x/coward@dev/mod.ts";
 import { stringify } from "https://deno.land/std/node/querystring.ts";
-export async function run(message: Message): Promise<Options.createMessage> {
+export async function run(
+  message: Message,
+  args: string[],
+): Promise<Options.createMessage> {
   const male = Number(
     (await fetch(
       "https://pbump.net/files/post/names/find.php?who=" +
@@ -16,11 +19,18 @@ export async function run(message: Message): Promise<Options.createMessage> {
   return {
     file: {
       file: await fetch(
-        "https://belikebill.ga/billgen-API.php?" + stringify({
-          name: message.author.username,
-          default: 1,
-          sex: male >= 0.5 || male === -1 ? "m" : "f",
-        }),
+        "https://belikebill.ga/billgen-API.php?" +
+          stringify(
+            args.join("").length
+              ? {
+                text: args.join(" "),
+              }
+              : {
+                name: message.author.username,
+                default: 1,
+                sex: male >= 0.5 || male === -1 ? "m" : "f",
+              },
+          ),
       ).then((res) => res.blob()),
       name: "bill.jpeg",
     },
