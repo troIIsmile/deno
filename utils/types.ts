@@ -4,9 +4,9 @@ import {
   Options,
 } from "https://deno.land/x/coward@dev/mod.ts";
 
-type Return = (Options.createMessage | string | void);
+export type Return = (Options.createMessage | string | void);
 
-interface CommandObj {
+export interface CommandObj {
   run: (
     this: Bot,
     message: Message,
@@ -16,13 +16,7 @@ interface CommandObj {
   aliases?: string[];
 }
 
-interface Bot extends Client {
+export interface Bot extends Client {
   commands: Map<string, CommandObj>;
   aliases: Map<string, string>;
 }
-
-export {
-  Return,
-  Bot,
-  CommandObj,
-};
