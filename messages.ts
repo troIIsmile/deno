@@ -83,6 +83,7 @@ export const messages: Nested<string> = {
     'node bad deno good',
     "Made with Coward!",
     "NotSoBot is bad™",
+    'jackbot-next-next lol'
   ],
   Songs: Object.entries({
     "Scatman John": ["Scatman's World"],
