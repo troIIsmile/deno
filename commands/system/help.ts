@@ -84,5 +84,5 @@ export async function run(
       },
     };
 }
-export const help = "A new command";
+export const help = "List of all commands. Argument can be a page or command.";
 export const aliases = [];
