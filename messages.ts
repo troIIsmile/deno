@@ -80,9 +80,8 @@ export const messages: Nested<string> = {
   Emulators: ["Yuzu", "Dolphin Emulator", "RetroArch"],
   Websites: ["Twitter", "Reddit", "YouTube"],
   Meta: [
-    // References to bots (or this bot)
+    'node bad deno good',
     "Made with Coward!",
-    "Made with Deno!",
     "NotSoBot is bad™",
   ],
   Songs: Object.entries({
