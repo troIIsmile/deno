@@ -23,5 +23,4 @@ export async function run(message: Message): Promise<Options.createMessage> {
     },
   };
 }
-export const help = "A new command";
-export const aliases = [];
+export const help = "be like bill";
