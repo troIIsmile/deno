@@ -1,5 +1,6 @@
 import { Bot, Message, Options } from "../../utils/types.ts";
 import random from "../../utils/random.ts";
+import { recursiveReaddir } from "https://deno.land/x/recursive_readdir/mod.ts";
 function chunk(array: any[], size: number = 1): string[][] {
   let chunk: any[] = [];
   return array.reduce((acc, curr, idx, arr) => {
@@ -35,6 +36,9 @@ export async function run(
   const title = (this.commands.get(args.join(" ")) ? args.join(" ") : false) ||
     this.aliases.get(args.join(" "));
   if (title) {
+    const source = (await recursiveReaddir("./commands/")).find((name) =>
+  name.endsWith(title + ".ts")
+);
     return {
       embed: {
         title,
@@ -43,8 +47,8 @@ export async function run(
           name: "📛 Aliases",
           value: this.commands.get(title)?.aliases?.join(", "),
         }, {
-          name: "👨‍💻 Function argument count",
-          value: this.commands.get(title)?.run.length,
+            name: '👨‍💻 Source code',
+            value: source ? 'https://github.com/Jack5079/nxt-deno/blob/master/' + source : 'Not found!'
         }],
       },
     };
