@@ -39,7 +39,7 @@ client.commands = new Map();
 client.aliases = new Map();
 
 client.evt.messageCreate.attach(({ message }) => {
-  commandHandler.bind(client)(message);
+  commandHandler.call(client, message);
 }); // command handler
 
 client.evt.ready.attach(() => {
