@@ -1,7 +1,9 @@
 import { Message } from "https://deno.land/x/coward@dev/mod.ts";
 import { Bot } from "../utils/types.ts";
-
-export default async function (this: Bot, message: Message) {
+interface ctx {
+  message: Message
+}
+export default async function (this: Bot, {message}: ctx) {
   // When a message is sent
   if (!message.author?.bot) {
     // no bots allowed
