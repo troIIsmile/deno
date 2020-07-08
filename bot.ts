@@ -6,6 +6,7 @@ const client: Bot = new Client(token) as Bot;
 client.commands = new Map();
 client.aliases = new Map();
 
+// Load events
 for await (const file of Deno.readDir("events")) {
   Object.entries(client.evt).find(([name]) =>
     basename(file.name).replace(".ts", "") === name
@@ -13,4 +14,5 @@ for await (const file of Deno.readDir("events")) {
     (await import("./events/" + file.name)).default.call(client, ctx);
   });
 }
+
 client.connect();
