@@ -1,20 +1,7 @@
 import { Bot, Message, Options } from "../../utils/types.ts";
 import random from "../../utils/random.ts";
 import { recursiveReaddir } from "https://deno.land/x/recursive_readdir/mod.ts";
-function chunk(array: any[], size: number = 1): string[][] {
-  let chunk: any[] = [];
-  return array.reduce((acc, curr, idx, arr) => {
-    chunk.push(curr);
-    if (chunk.length === size) {
-      acc.push(chunk);
-      chunk = [];
-    }
-    if (chunk.length > 0 && idx === arr.length - 1) {
-      acc.push(chunk);
-    }
-    return acc;
-  }, []);
-}
+import "https://deno.land/x/arrays/mod.ts";
 export async function run(
   this: Bot,
   _message: Message,
@@ -52,13 +39,13 @@ export async function run(
       },
     };
   }
-  const pages = chunk(commands, 20);
+  const pages = commands.chunk(20);
   return pages[page - 1]
     ? {
       embed: {
         title: `nxt commands`,
         description: pages[page - 1].map((
-          [name, description],
+          [name, description]: [string, string],
         ) => `**${name}** - ${description}`).join("\n"),
         footer: {
           iconURL:
