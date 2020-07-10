@@ -1,0 +1,27 @@
+commands:
+  - commands/**/*.ts
+
+util:
+  - utils/**/*
+
+config:
+  - .vscode/**/* # visual studio code config
+  - .github/**/* # how meta
+  - info.json # name and stuff
+  - .editorconfig
+  - .gitignore
+  - tsconfig.json # compiler config
+
+core:
+  - bot.ts
+
+messages:
+  - messages.ts
+  
+events:
+  - events/**/*
+
+documentation:
+  - docs/**/*
+  - README.md
+  - config.example.ts
