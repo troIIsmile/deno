@@ -7,10 +7,13 @@ client.commands = new Map();
 client.aliases = new Map();
 
 // Load events
+// @todo: make this readable!
 for await (const file of Deno.readDir("events")) {
-  Object.entries(client.evt).find(([name]) =>
+  const evt = Object.entries(client.evt).find(([name]) =>
     basename(file.name).replace(".ts", "") === name
-  )?.[1].attach(async (ctx) => {
+  )?.[1]
+  
+  evt?.attach(async (ctx) => {
     (await import("./events/" + file.name)).default.call(client, ctx);
   });
 }
