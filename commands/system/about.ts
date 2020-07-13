@@ -29,10 +29,6 @@ const hours = Math.floor(timestamp / 60 / 60);
         value: this.users.size,
         inline: true
       }, {
-        name: 'ℹ Bot Version',
-        value: JSON.parse(await Deno.readTextFile('./info.json')).version,
-        inline: true
-      }, {
         name: '🦕 Deno Version',
         inline: true,
         value: Deno.version.deno
