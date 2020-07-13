@@ -1,6 +1,10 @@
 import { Bot, Options } from '../../utils/types.ts'
 import { all as messages } from '../../messages.ts'
 export async function run (this: Bot): Promise<Options.createMessage> {
+  const timestamp = performance.now() / 1000;
+
+// hours
+const hours = Math.floor(timestamp / 60 / 60);
   const esmBotMessages: string[] = await fetch('https://raw.githubusercontent.com/TheEssem/esmBot/master/messages.json').then(res => res.json())
   const linesFromEsmBot = messages.filter((line: string) => esmBotMessages.includes(line)).length
   const percentOfLines = (linesFromEsmBot * 100) / messages.length
@@ -47,6 +51,10 @@ export async function run (this: Bot): Promise<Options.createMessage> {
       }, {
         name: '>_ Command Count',
         value: this.commands.size,
+        inline: true
+      }, {
+        name: '⏰ Uptime',
+        value: [hours.toString().padStart(2, '0'), (Math.floor(timestamp / 60) - (hours * 60)).toString().padStart(2, '0'), Math.floor(timestamp % 60).toString().padStart(2, '0')].join(':'),
         inline: true
       }]
     }
