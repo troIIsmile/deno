@@ -11,7 +11,7 @@ A terrible Discord bot, but in Deno.
 ### Running the bot
 
 ```bash
-deno run --allow-read=./ --allow-net --allow-env -c tsconfig.json bot.ts
+deno run --allow-read=./ --allow-net --allow-env --unstable --importmap=import_map.json -c tsconfig.json bot.ts
 ```
 
 ### Random "Playing" message

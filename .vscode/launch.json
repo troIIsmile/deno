@@ -13,6 +13,8 @@
         "--allow-read=./",
         "--allow-env",
         "--allow-net",
+        "--unstable",
+        "--importmap=import_map.json",
         "-c",
         "tsconfig.json",
         "bot.ts"

@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "coward": "https://deno.land/x/coward@dev/mod.ts"
+  }
+}
