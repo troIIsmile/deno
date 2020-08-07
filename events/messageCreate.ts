@@ -1,8 +1,6 @@
 import { Bot, Message } from "../utils/types.ts";
-interface ctx {
-  message: Message
-}
-export default async function (this: Bot, {message}: ctx) {
+
+export default async function (this: Bot, message: Message) {
   // When a message is sent
   if (!message.author?.bot) {
     // no bots allowed
