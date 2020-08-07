@@ -1,7 +1,8 @@
-import { Client } from "https://deno.land/x/coward@dev/mod.ts";
+import { Client } from "coward";
 import { Bot } from "./utils/types.ts";
 import { token } from "./config.ts";
 import { basename } from "https://deno.land/std/path/mod.ts";
+
 const client: Bot = new Client(token) as Bot;
 client.commands = new Map();
 client.aliases = new Map();

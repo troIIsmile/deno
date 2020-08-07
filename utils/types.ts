@@ -2,7 +2,7 @@ import {
   Client,
   Message,
   Options,
-} from "https://deno.land/x/coward@dev/mod.ts";
+} from "coward";
 
 export type Return = (Options.createMessage | string | void);
 
