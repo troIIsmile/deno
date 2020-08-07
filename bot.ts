@@ -3,7 +3,7 @@ import { Bot } from "./utils/types.ts";
 import { token } from "./config.ts";
 import { basename } from "https://deno.land/std/path/mod.ts";
 
-const client: Bot = new Client(token) as Bot;
+const client: Bot = <Bot><unknown>new Client(token);
 client.commands = new Map();
 client.aliases = new Map();
 
